@@ -1,5 +1,6 @@
 package com.filipe.List;
 
+import java.util.Calendar;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -95,11 +96,13 @@ import java.util.List;
 	
 	public String buscaridade(String nome) {
 		StringBuilder builder = new StringBuilder();
+		Calendar cl = Calendar.getInstance(); 
 		builder.append("Idade: ");
 		for(int i = 0;i < Lista.size();i++) {
 			if(Lista.get(i).getNome() == nome) {
-				String[] idades = Lista.get(i).getNascimento().split("/");
-				builder.append(2022 - Integer.valueOf(idades[2]));
+				cl.setTime(Lista.get(i).getNascimento());
+				builder.append(2022 -(cl.get(Calendar.YEAR)));
+				builder.append("\n");
 			}
 		}
 		
@@ -111,10 +114,11 @@ import java.util.List;
 	
 	public String aniversariante() {
 		StringBuilder builder = new StringBuilder();
-		builder.append("Aniversariantes do mês: ");
+		Calendar cl = Calendar.getInstance(); 
+		builder.append("Aniversariantes do mês: \n");
 		for(int i = 0;i < Lista.size();i++) {
-			String[] idades = Lista.get(i).getNascimento().split("/");
-			if (Integer.valueOf(idades[1]) == 11) {
+			cl.setTime(Lista.get(i).getNascimento());
+			if (cl.get(Calendar.MONTH) == 10) {
 				builder.append(Lista.get(i).getNome()+"\n");
 			}
 		}

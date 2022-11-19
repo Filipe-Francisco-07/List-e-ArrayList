@@ -1,12 +1,13 @@
 package com.filipe.List;
 
+import java.util.Date;
 public class Pessoa {
 
 	private String nome;
 	private String email;
-	private String nascimento;
+	private Date nascimento;
 		
-	public Pessoa(String nome, String email, String nascimento) {
+	public Pessoa(String nome, String email, Date nascimento) {
 		this.nome = nome;
 		this.email = email;
 		this.nascimento = nascimento;
@@ -27,15 +28,15 @@ public class Pessoa {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	
-	public String getNascimento() {
+
+	public Date getNascimento() {
 		return nascimento;
 	}
 
-	public void setNascimento(String nascimento) {
+	public void setNascimento(Date nascimento) {
 		this.nascimento = nascimento;
 	}
-	
+
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
@@ -43,9 +44,9 @@ public class Pessoa {
 		builder.append(nome);
 		builder.append(", email=");
 		builder.append(email);
-		builder.append(", nascimento=");
-		builder.append(nascimento);
 		builder.append("]");
 		return builder.toString();
 	}
+	
+
 }
